@@ -3,16 +3,12 @@ import { addCategory } from '../api/categories';
 import { Button,Form } from 'react-bootstrap';
 
 
-function AddCategoryForm({addCategory: addCategoryClient}) {
+
+function AddCategoryForm() {
   const [name, setName] = useState('');
   function onSave() {
+  console.log(name)
     addCategory(name)
-      .then((id) => {
-        addCategoryClient({
-          id,
-          name
-        });
-      })
       .catch((e) => {
         console.error(e)
         alert("ERROR")
@@ -21,9 +17,9 @@ function AddCategoryForm({addCategory: addCategoryClient}) {
 
   return (
   <>
-   <Form.Control size="lg" type="text" value={name} onChange={e => setName(e.target.value)}placeholder="Введіть назву категорії" />
-   <br/>
-   <Button variant="dark" onClick={onSave}>Add</Button>{' '}
+   <Form.Control size="bg" type="text"  onChange={event => setName(event.target.value)}placeholder="Введіть назву категорії" />
+  
+   <Button variant="dark" onClick={onSave}>Add</Button>{''}
   </>
 
   )

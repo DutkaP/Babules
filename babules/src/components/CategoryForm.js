@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Button, Table}  from 'react-bootstrap'; 
+import {Form, Button}  from 'react-bootstrap'; 
 
 export function CategoryForm ({category}) {
      
@@ -26,9 +26,7 @@ export function CategoryForm ({category}) {
      }
     return(
     <>
-         <div>{name}</div>
          <Form.Control type='text' onChange={(event)=>{setName(event.target.value)}} placeholder='Назва'></Form.Control>
-         <Form.Control type='text' onChange={(event)=>{setDescription(event.target.value)}} placeholder='Опис'></Form.Control>
          <Button onClick={()=>onSave()}>Додати категорію</Button>
 
      </>

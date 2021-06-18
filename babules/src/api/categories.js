@@ -1,3 +1,5 @@
+import { Categories } from '../pages/Categories';
+
 import {SERVER_URL} from './const';
 
 export const fetchCategories = () =>
@@ -5,11 +7,20 @@ export const fetchCategories = () =>
     .then(res => res.json())
 
 
-export const addCategory = (name) =>
+export const addCategory = (name, description) =>
   fetch(`${SERVER_URL}/new_category`, {
     method: 'POST',
-    body: {
-      name
-    }
+    body: JSON.stringify({
+      name,
+      description
+    }),
+    headers: {'Content-Type': 'application/json'}
   })
   .then(res => res.json());
+  
+export const updateCategories = (Categories) => {
+    Categories.find()
+
+  }
+
+  

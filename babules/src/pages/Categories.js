@@ -1,26 +1,26 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, {  useState,useEffect } from 'react'
+import { fetchCategories } from '../api/categories'
 import CategoriesList from '../components/CategoriesList'
 
 export const Categories = () => {
-  const categoriesStr = localStorage.getItem('categories')
-  const categories = JSON.parse(categoriesStr)
-  const [categoriesState, setCategories] = useState(categories ?? [])
+  const [categoriesState, setCategories] = useState([])
     
-    function onRemove(id) {
-      const newCategories = categoriesState.filter((category) => category.id !== id);
-      
-       setCategories(newCategories)
+  function onRemove(id) {
+   const newCategories = categoriesState.filter((category) => category.id !== id);
+   setCategories(newCategories)
+   localStorage.setItem('categories', JSON.stringify(newCategories))
+  }
+  useEffect(()=> {
+    fetchCategories().then((categories) => {
+      setCategories(categories)
+    })
+  },
+  [])
 
-       localStorage.setItem('categories', JSON.stringify(newCategories))
-   }
-
-   
   return (
-
-      <CategoriesList categories={categoriesState} 
-      onRemove={onRemove}
-      />
-      
+      <CategoriesList 
+        categories={categoriesState} 
+        onRemove={onRemove}
+      /> 
   )
-  
 }

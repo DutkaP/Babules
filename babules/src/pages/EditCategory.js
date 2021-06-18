@@ -14,7 +14,7 @@ import { Form, Button } from 'react-bootstrap'
         const prevName = JSON.parse(prevNameStr)
         const prevDescription = JSON.parse(prevDescriptionStr)    
         const categories = JSON.parse(localStorage.getItem('categories'));
-        const {name, description}  = categories.find(category => 'name')
+        const {name, description}  = categories.find(categories => 'name') ?? []
           
         return (
         <>

@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react'
-import {CategoryForm} from '../components/CategoryForm'
+import React from 'react'
+import  AddCategoryForm  from '../components/AddCategoryForm'
 
 export function AddCategory () {
     return(
 
-        <CategoryForm />
+        <AddCategoryForm />
         )
     }

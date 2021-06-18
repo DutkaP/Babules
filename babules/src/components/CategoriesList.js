@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {Table,Button,Form} from 'react-bootstrap'
 import { NavLink } from "react-router-dom";
+import { AddCategoryForm } from "./AddCategoryForm";
+
 
 function CategoriesList({categories,description,onRemove}) {
-  function onEdit(id){
-    
-  }
   
   return !categories,description?.length ? (
     <p>No categories</p>
@@ -37,6 +36,8 @@ function CategoriesList({categories,description,onRemove}) {
 </tbody>
 </Table>
      </>
+     
     );   
 }
+
 export default CategoriesList;
