@@ -1,11 +1,9 @@
 import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {Categories} from './pages/Categories'
-import {Activities} from './pages/Activities'
-import {Help} from './pages/Help'
+import {Categories as Products} from './pages/Products'
 import {Navbar} from './components/Navbar'
-import {AddCategory} from './pages/AddCategory'
-import { EditCategory } from './pages/EditCategory'
+import {AddCategory as AddProduct} from './pages/AddProduct'
+import { EditCategory as EditProduct } from './pages/EditProduct'
 
 function App() {
   return (
@@ -13,11 +11,9 @@ function App() {
     <Navbar />
     <div className="container">
      <Switch>
-      <Route path={'/'} exact component={Categories}/>
-      <Route path={'/activities'} exact component={Activities}/>
-      <Route path={'/help'} exact component={Help}/>
-      <Route path={'/addcategory'} exact component={AddCategory}/>
-      <Route path={'/editcategory/:id'} exact component={EditCategory}/>
+      <Route path={'/'} exact component={Products}/>
+      <Route path={'/addcategory'} exact component={AddProduct}/>
+      <Route path={'/editcategory/:id'} exact component={EditProduct}/>
      </Switch>
     </div>
     </BrowserRouter>

@@ -25,7 +25,7 @@ app.use(express.json())
 app.use(cors(cors.params))
 app.use(bodyParser.json());
 
-app.get('/categories', (req, res) => {
+app.get('/categories', (res) => {
   Category.find().then((categories) => {
     res.json(categories)
   })
@@ -33,8 +33,14 @@ app.get('/categories', (req, res) => {
 
 
 app.post('/new_category', (req, res) => {
-  console.log(req.body.name);
-  const newCategory = new Category({name:req.body.name})
+  console.log (
+    req.body.name, 
+    req.body.description
+    );
+  const newCategory = new Category({
+    name:req.body.name,
+    description:req.body.description
+  })
   newCategory.save().then(() => { 
       console.log(newCategory)
     res.json(newCategory)
@@ -46,7 +52,7 @@ app.put('/category',(req,res) => {
   
 })
 
-app.delete('/categories/:id') 
+/*app.delete('/categories/:id') 
 const deleteOneByID = async (req, res) => {
   const _id = req.params.id
   try {
@@ -57,7 +63,7 @@ const deleteOneByID = async (req, res) => {
     message: err.message,
    });
   }
- }
+ }*/
 
 start()
   app.listen(8080, 
